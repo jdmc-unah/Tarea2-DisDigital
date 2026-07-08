@@ -1,0 +1,24 @@
+
+[
+    {
+    "id": "6e67d9d3-16d1-4a6b-a227-161bc8aff99d",
+    "dniCliente": "0501-2000-12345",
+    "nombreCompleto": "Juan Perez",
+    "montoSolicitado": 15000,
+    "plazoMeses": 12,
+    "tasaInteres": 3.5,
+    "estado": "PENDIENTE", 
+    "fechaCreacion": "2026-07-05T10:00:00Z"
+    },
+    {
+    "id": "c7d488e1-21a1-4539-90e2-fb673f794b57",
+    "dniCliente": "0501-2000-12345",
+    "nombreCompleto": "Lionel Messi",
+    "montoSolicitado": 105000,
+    "plazoMeses": 10,
+    "tasaInteres": 5.5,
+    "estado": "APROBADA", 
+    "fechaCreacion": "2026-07-10T10:00:00Z"
+    }
+]
+

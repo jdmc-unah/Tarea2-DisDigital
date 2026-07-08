@@ -10,7 +10,7 @@ app.use(express.json())
 const PORT = process.env.PORT || 3001
 
 app.get('/', (req,res)=>{
-    res.send('testing')
+    res.send('API REST Solicitudes de crédito')
 })
 
 
