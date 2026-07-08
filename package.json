@@ -1,0 +1,20 @@
+{
+  "name": "tarea-2---dd---jose-daniel-mejia-cuellar",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/jdmc-unah/Tarea2-DD-JoseDanielMejiaCuellar#readme",
+  "bugs": {
+    "url": "https://github.com/jdmc-unah/Tarea2-DD-JoseDanielMejiaCuellar/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdmc-unah/Tarea2-DD-JoseDanielMejiaCuellar.git"
+  },
+  "license": "ISC",
+  "author": "jdmc",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
