@@ -1,0 +1,31 @@
+import solicitudes from "../mock/solicitudes.json" with { type: "json" }
+import { randomUUID } from "crypto"
+
+export default class SolicitudModel {
+    static getAll = async (estado) => {
+        if (estado) {
+            return solicitudes.filter(s => s.estado === estado)
+        }
+        return solicitudes
+    }
+
+    static getById = async (id) => {
+        return solicitudes.find(s => s.id === id)
+    }
+
+    static create = async (payload) => {
+        const nuevaSolicitud = {
+            id: randomUUID(),
+            dniCliente: payload.dniCliente,
+            nombreCompleto: payload.nombreCompleto,
+            montoSolicitado: payload.montoSolicitado,
+            plazoMeses: payload.plazoMeses,
+            tasaInteres: payload.tasaInteres ?? 5.0,
+            estado: "PENDIENTE",
+            fechaCreacion: new Date().toISOString()
+        }
+        
+        solicitudes.push(nuevaSolicitud)
+        return nuevaSolicitud
+    }
+}
