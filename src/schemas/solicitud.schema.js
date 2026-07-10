@@ -1,6 +1,6 @@
 import * as z from "zod"
 
-export const solitudSchema = z.object({
+export const solicitudSchema = z.object({
     dniCliente: z.string().min(13,"El DNI debe contener 13 caracteres.").max(15,"El DNI debe contener máximo 15 caracteres."),
     nombreCompleto: z.string().min(5,"El nombre debe tener al menos 5 caracteres.").max(100,"El nombre debe contener máximo 100 caracteres."),
     montoSolicitado: z.min(1000,"El monto mínimo es de L1000.").max(100000,"El monto máximo es de L100000."),
