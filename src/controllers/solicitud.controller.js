@@ -31,7 +31,7 @@ export const obtenerSolicitudPorId = async (req, res) => {
     if(!solicitud){
         return res.status(404).json(jsonResponse({
             status: 404,
-            message: "La solicitud no a sido encontrada.",
+            message: "La solicitud no ha sido encontrada.",
             data:null
         }))
     }
@@ -81,8 +81,6 @@ export const editarSolicitud = async (req,res) => {
         
     }
 
-
-    
 }
 
 
@@ -91,9 +89,7 @@ export const editarSolicitud = async (req,res) => {
 export const editarEstado = async (req,res) => {
     
     try {
-        const payload = req.validatedBody
-        console.log(req.validatedBody);
-        
+        const payload = req.validatedBody        
         const {id} = req.params
 
         const existe =  await SolicitudModel.getById(id)
@@ -126,7 +122,39 @@ export const editarEstado = async (req,res) => {
         console.log(error);
         
     }
-
-
-    
 }
+
+
+
+
+
+export const eliminarSolicitud = async (req,res) => {
+    
+    try {
+        const {id} = req.params
+
+        const existe =  await SolicitudModel.getById(id)
+
+        if (!existe) {
+            return res.status(404).json(jsonResponse({
+                status: 404,
+                message: "La solicitud a eliminar no ha sido encontrada.",
+                data:null
+            }))
+        }
+
+        const eliminada = await SolicitudModel.delete(id)
+
+        res.status(201).json(jsonResponse({
+            status: 201,
+            message: "La solicitud se eliminó correctamente.",
+            data: eliminada
+        }))
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+
+}
+

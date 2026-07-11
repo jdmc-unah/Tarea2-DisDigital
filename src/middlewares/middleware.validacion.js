@@ -7,7 +7,7 @@ export const validateSchema = (schema) => {
         if(!success){
             return res.status(400).json({
                 success: false,
-                message: "Los datos ingreados son inválidos.",
+                message: "Los datos ingresados son inválidos.",
                 errors: JSON.parse(error.message)  
             })
         }
