@@ -1,4 +1,4 @@
-import solicitudes from "../mock/solicitudes.json" with { type: "json" }
+import solicitudes from "../mock/solicitud.json" with { type: "json" }
 import { randomUUID } from "crypto"
 
 export default class SolicitudModel {
@@ -28,4 +28,14 @@ export default class SolicitudModel {
         solicitudes.push(nuevaSolicitud)
         return nuevaSolicitud
     }
+
+
+    static update = async (payload) =>{
+
+
+    }
+
+
+
+
 }

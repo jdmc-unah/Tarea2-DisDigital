@@ -1,5 +1,5 @@
 import {Router} from "express"
-import {crearSolicitud,obtenerSolicitudPorId,obtenerSolicitudes} from "../controllers/solicitud.controller"
+import {crearSolicitud,obtenerSolicitudPorId,obtenerSolicitudes} from "../controllers/solicitud.controller.js"
 import {validateSchema} from "../middlewares/middleware.validacion.js"
 import {solicitudSchema} from "../schemas/solicitud.schema.js"
 
