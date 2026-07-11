@@ -1,7 +1,7 @@
 import { success } from "zod"
 
 export const validateSchema = (schema) => {
-    return (req,res,next) => {
+    return (req,res,next) => {        
         const { success, data, error } = schema.safeParse(req.body)
         
         if(!success){

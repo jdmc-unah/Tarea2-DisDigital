@@ -2,7 +2,7 @@ import SolicitudModel from "../models/solicitud.model.js"
 import {jsonResponse} from "../helpers/jsonResponse.js"
 
 export const crearSolicitud = async (req,res) => {
-    const payload = req.validateBody
+    const payload = req.validatedBody
 
     const nueva = await SolicitudModel.create(payload)
 
@@ -40,4 +40,38 @@ export const obtenerSolicitudPorId = async (req, res) => {
         message: "Datos de la solicitud.",
         data: solicitud
     }))
+}
+
+
+
+export const editarSolicitud = async (req,res) => {
+    
+    try {
+        const payload = req.validateBody
+
+        const existe =  await SolicitudModel.getById(payload.id)
+
+        if (!existe) {
+            return res.status(404).json(jsonResponse({
+                status: 404,
+                message: "La solicitud a actualizar no ha sido encontrada.",
+                data:null
+            }))
+        }
+
+        const actualizada = await SolicitudModel.update(payload)
+
+        res.status(201).json(jsonResponse({
+            status: 201,
+            message: "La solicitud se actualizó correctamente.",
+            data: actualizada
+        }))
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+
+
+    
 }

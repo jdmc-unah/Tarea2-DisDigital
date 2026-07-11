@@ -13,7 +13,8 @@ export default class SolicitudModel {
         return solicitudes.find(s => s.id === id)
     }
 
-    static create = async (payload) => {
+    static create = async (payload) => {      
+
         const nuevaSolicitud = {
             id: randomUUID(),
             dniCliente: payload.dniCliente,
@@ -31,8 +32,10 @@ export default class SolicitudModel {
 
 
     static update = async (payload) =>{
+        const payloadIndex = solicitudes.findIndex(s => s.id === payload.id)
+        solicitudes[payloadIndex] = { ...payload }
 
-
+        return solicitudes[payloadIndex]
     }
 
 
