@@ -60,6 +60,14 @@ export const editarSolicitud = async (req,res) => {
             }))
         }
 
+        if (existe.estado !== 'PENDIENTE') {
+            return res.status(400).json(jsonResponse({
+                status: 400,
+                message: "No puede actualizar una solicitud que no tenga estado PENDIENTE.",
+                data:null
+            }))
+        }
+
         const actualizada = await SolicitudModel.update(payload, id)
 
         res.status(201).json(jsonResponse({
