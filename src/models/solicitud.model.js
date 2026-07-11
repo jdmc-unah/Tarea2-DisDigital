@@ -41,6 +41,14 @@ export default class SolicitudModel {
     }
 
 
+    static updateStatus = async (id, estado) =>{
+        const payloadIndex = solicitudes.findIndex(s => s.id === id)
+        solicitudes[payloadIndex].estado = estado
+
+        return solicitudes[payloadIndex]
+    }
+
+
 
 
 }
