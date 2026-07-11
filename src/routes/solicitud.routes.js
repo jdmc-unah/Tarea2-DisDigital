@@ -9,7 +9,7 @@ router.post("/", validateSchema(solicitudSchema),crearSolicitud)
 router.get("/", obtenerSolicitudes)
 router.get("/:id", obtenerSolicitudPorId)
 
-router.put("/", validateSchema(solicitudSchema),editarSolicitud)
+router.put("/:id", validateSchema(solicitudSchema),editarSolicitud)
 
 export default router
 
