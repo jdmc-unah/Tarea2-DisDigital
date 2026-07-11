@@ -50,5 +50,14 @@ export default class SolicitudModel {
 
 
 
+    static delete = async (id) =>{
+        const deletedData = solicitudes.splice( s => s.id === id )
+
+        return deletedData
+    }
+
+
+
+
 
 }
