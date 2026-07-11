@@ -47,9 +47,10 @@ export const obtenerSolicitudPorId = async (req, res) => {
 export const editarSolicitud = async (req,res) => {
     
     try {
-        const payload = req.validateBody
+        const payload = req.validatedBody
+        const {id} = req.params
 
-        const existe =  await SolicitudModel.getById(payload.id)
+        const existe =  await SolicitudModel.getById(id)
 
         if (!existe) {
             return res.status(404).json(jsonResponse({
@@ -59,7 +60,7 @@ export const editarSolicitud = async (req,res) => {
             }))
         }
 
-        const actualizada = await SolicitudModel.update(payload)
+        const actualizada = await SolicitudModel.update(payload, id)
 
         res.status(201).json(jsonResponse({
             status: 201,

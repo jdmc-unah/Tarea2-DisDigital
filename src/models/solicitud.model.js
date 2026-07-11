@@ -31,9 +31,11 @@ export default class SolicitudModel {
     }
 
 
-    static update = async (payload) =>{
-        const payloadIndex = solicitudes.findIndex(s => s.id === payload.id)
-        solicitudes[payloadIndex] = { ...payload }
+    static update = async (payload, id) =>{
+        const payloadIndex = solicitudes.findIndex(s => s.id === id)
+        solicitudes[payloadIndex].montoSolicitado = payload.montoSolicitado
+        solicitudes[payloadIndex].plazoMeses = payload.plazoMeses
+        solicitudes[payloadIndex].nombreCompleto = payload.nombreCompleto
 
         return solicitudes[payloadIndex]
     }
