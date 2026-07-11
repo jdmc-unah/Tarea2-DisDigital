@@ -2,17 +2,17 @@ import { success } from "zod"
 
 export const validateSchema = (schema) => {
     return (req,res,next) => {
-        const result = schema.safeParse(req.body)
-
-        if(!result.success){
+        const { success, data, error } = schema.safeParse(req.body)
+        
+        if(!success){
             return res.status(400).json({
                 success: false,
                 message: "Los datos ingreados son inválidos.",
-                errors: result.error.errors  
+                errors: JSON.parse(error.message)  
             })
         }
 
-        req.validatedBody = result.data
+        req.validatedBody = data
         next()
     }
 } 
