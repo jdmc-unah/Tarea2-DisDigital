@@ -1,7 +1,7 @@
 import {Router} from "express"
-import {crearSolicitud,obtenerSolicitudPorId,obtenerSolicitudes, editarSolicitud} from "../controllers/solicitud.controller.js"
+import {crearSolicitud,obtenerSolicitudPorId,obtenerSolicitudes, editarSolicitud, editarEstado} from "../controllers/solicitud.controller.js"
 import {validateSchema} from "../middlewares/middleware.validacion.js"
-import {solicitudSchema} from "../schemas/solicitud.schema.js"
+import {estadoSchema, solicitudSchema} from "../schemas/solicitud.schema.js"
 
 const router = Router()
 
@@ -10,6 +10,8 @@ router.get("/", obtenerSolicitudes)
 router.get("/:id", obtenerSolicitudPorId)
 
 router.put("/:id", validateSchema(solicitudSchema),editarSolicitud)
+
+router.patch("/:id/estado",validateSchema(estadoSchema), editarEstado)
 
 export default router
 

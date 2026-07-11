@@ -7,3 +7,8 @@ export const solicitudSchema = z.object({
     plazoMeses: z.number().int("Debe ser un número entero.").min(1,"El plazo mínimo es de 1 mes.").max(60,"El plazo máximo es de 60 meses."),
     tasaInteres: z.number().optional()
 })
+
+
+export const estadoSchema = z.object({
+    estado: z.enum(["APROBADA", "RECHAZADA"])
+});
