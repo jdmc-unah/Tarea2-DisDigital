@@ -84,3 +84,49 @@ export const editarSolicitud = async (req,res) => {
 
     
 }
+
+
+
+
+export const editarEstado = async (req,res) => {
+    
+    try {
+        const payload = req.validatedBody
+        console.log(req.validatedBody);
+        
+        const {id} = req.params
+
+        const existe =  await SolicitudModel.getById(id)
+
+        if (!existe) {
+            return res.status(404).json(jsonResponse({
+                status: 404,
+                message: "La solicitud a actualizar no ha sido encontrada.",
+                data:null
+            }))
+        }
+
+        if (existe.estado !== 'PENDIENTE') {
+            return res.status(400).json(jsonResponse({
+                status: 400,
+                message: "No puede actualizar una solicitud que no tenga estado PENDIENTE.",
+                data:null
+            }))
+        }
+
+        const actualizada = await SolicitudModel.updateStatus(id, payload.estado)
+
+        res.status(201).json(jsonResponse({
+            status: 201,
+            message: "Se cambió el estado de la solicitud se actualizó correctamente.",
+            data: actualizada
+        }))
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+
+
+    
+}
