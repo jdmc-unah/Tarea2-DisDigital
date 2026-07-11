@@ -2,7 +2,7 @@ import SolicitudModel from "../models/solicitud.model.js"
 import {jsonResponse} from "../helpers/jsonResponse.js"
 
 export const crearSolicitud = async (req,res) => {
-    const payload = req.validateBody
+    const payload = req.validatedBody
 
     const nueva = await SolicitudModel.create(payload)
 
