@@ -13,7 +13,7 @@ app.get('/', (req,res)=>{
     res.send('API REST Solicitudes de crédito')
 })
 
-app.use(solicitudesRouter)
+app.use('/api/solicitudes', solicitudesRouter)
 
 app.listen(PORT, ()=>{
     console.log(`SERVIDOR CORRIENDO EN: http://localhost:${PORT} `);

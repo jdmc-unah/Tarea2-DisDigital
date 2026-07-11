@@ -5,9 +5,9 @@ import {solicitudSchema} from "../schemas/solicitud.schema.js"
 
 const router = Router()
 
-router.post("/api/solicitudes", validateSchema(solicitudSchema),crearSolicitud)
-router.get("/api/solicitudes", obtenerSolicitudes)
-router.get("/api/solicitudes/:id", obtenerSolicitudPorId)
+router.post("/", validateSchema(solicitudSchema),crearSolicitud)
+router.get("/", obtenerSolicitudes)
+router.get("/:id", obtenerSolicitudPorId)
 
 export default router
 
